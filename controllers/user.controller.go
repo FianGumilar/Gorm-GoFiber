@@ -11,7 +11,7 @@ import (
 func UserGetAll(c *fiber.Ctx) error {
 	var users []*models.User
 
-	database.DB.Preload("Locker").Find(&users)
+	database.DB.Preload("Locker").Preload("Posts").Find(&users)
 
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
 		"message": "All users",

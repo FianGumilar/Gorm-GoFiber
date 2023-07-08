@@ -19,4 +19,9 @@ func RouteInit(app *fiber.App) {
 	app.Put("/lockers/:id", controllers.UpdateLocker)
 	app.Delete("/lockers/:id", controllers.DeleteLocker)
 
+	app.Get("/posts", controllers.GetAllPost)
+	app.Post("/posts", controllers.CreatePost)
+
+	app.Get("/tags", controllers.GetAllTag)
+	app.Post("/tags", controllers.CreateTag)
 }
